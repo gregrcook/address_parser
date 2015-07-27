@@ -324,12 +324,13 @@ for entry in columnList:                                                        
     if not arcpy.ListFields(featureClassLocation, columnHeader):
         arcpy.AddField_management(featureClassLocation, columnHeader, "TEXT","", "", "60") 
     
-    if outParsedRows == True:                                                           ## Create a second series of columns
+    if outParsedRows == True:                                                           ## Create a second series of columns if parsed rows are requested.
     
-    if parsed rows are requested.for entry in approvedParseList:
+    for entry in approvedParseList:
         columnHeader = ''.join(approvedParseList[approvedParseList.index(entry)]) 
-    if not arcpy.ListFields(featureClassLocation, columnHeader):
-        arcpy.AddField_management(featureClassLocation, columnHeader, "TEXT","", "", "60")
+        
+        if not arcpy.ListFields(featureClassLocation, columnHeader):
+            arcpy.AddField_management(featureClassLocation, columnHeader, "TEXT","", "", "60")
         
 def geocodeAddress(inputTable, inputAddressLocator,outputGeocodeLocation):
 ####################################################################################
